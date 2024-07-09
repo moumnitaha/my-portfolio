@@ -28,8 +28,8 @@ const App = () => {
       .start();
   }, []);
   return (
-    <main className="w-full h-svh bg-blue-800 flex flex-col p-1">
-      <div className="w-full h-24 bg-red-500 flex flex-row items-center p-5 justify-between font-poppins font-bold">
+    <main className="w-full h-svh bg-slate-950 flex flex-col p-2">
+      <div className="w-full h-24 bg-slate-800 flex flex-row items-center p-5 justify-between font-poppins font-bold">
         <h1>LOGO</h1>
         {/* <section className="flex flex-row bg-gray-800 items-center w-1/3 justify-between font-bold text-2xl">
           <div className="font-bold">Home</div>
@@ -45,7 +45,7 @@ const App = () => {
       </div>
       <div className="w-full flex-1 flex flex-col items-center justify-center sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row">
         {/* first section */}
-        <div className="bg-slate-500 md:bg-green-500 sm:bg-red-500 sm:w-full md:w-full xl:w-1/2 h-full sm:h-1/2 md:h-full xl:h-full flex flex-col justify-center items-center p-5">
+        <div className="sm:w-full md:w-full xl:w-1/2 h-full sm:h-1/2 md:h-full xl:h-full flex flex-col justify-center items-center p-5">
           <h1 className="text-6xl text-white font-bold ">
             Hello, I{"'"}m Moumni Taha
           </h1>
@@ -53,9 +53,9 @@ const App = () => {
           <div ref={ref}></div>
         </div>
         {/* second section */}
-        <div className="sm:w-full md:w-full xl:w-1/2 h-full sm:h-1/2 md:h-full xl:h-full flex flex-col justify-center p-5">
+        <div className="sm:w-full md:w-full xl:w-1/2 h-full sm:h-1/2 md:h-full xl:h-full flex flex-col justify-center items-center p-5">
           <img
-            // className="aspect-square h-1/2"
+            className="aspect-square w-3/4 sm:w-1/2 md:w-1/2 lg:w-full xl:w-full 2xl:w-full"
             src={manOnTable}
             alt="manOnTable"
           />
