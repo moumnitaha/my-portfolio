@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import cv from "../assets/cv-fs.pdf";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BsGithub, BsLinkedin, BsInstagram } from "react-icons/bs";
+
 import { gsap } from "gsap";
 
 const animateBanners = () => {
@@ -13,29 +13,26 @@ const animateBanners = () => {
     const tl = gsap.timeline();
     tl.set([banner1, banner2, banner3, banner4], { yPercent: 0 }).to(
       [banner1, banner2, banner3, banner4],
-      { yPercent: 100, stagger: 0.2 }
+      { yPercent: 100, stagger: 0.1 }
     );
   }
 };
 
 function NavBar() {
-  const [copied, setCopied] = useState(false);
-  const navigate = useNavigate();
   const pathname = useLocation().pathname;
   useEffect(() => {
     animateBanners();
   }, [pathname]);
   return (
-    <nav className="p-4 flex h-svh flex-col justify-between items-center w-24 font-ottercol bg-stone-300">
-      <h5 className="text-5xl font-ottercob bg-gradient-to-r from-stone-900  to-stone-400 text-transparent bg-clip-text text-center">
+    <nav className="p-4 w-svw flex flex-row justify-between items-center h-20 font-ottercol bg-stone-200">
+      <h5 className="text-5xl font-ottercob bg-gradient-to-r from-stone-900  to-stone-400 text-transparent bg-clip-text">
         Taha Dev
       </h5>
-
       {["Home", "Projects", "About", "Contact"].map((item, index) => (
         <Link
           to={`/${item === "Home" ? "" : item}`}
           key={index}
-          className="hover:underline"
+          className="hover:underline flex flex-row items-center font-ottercor"
           //   onClick={(e) => {
           //     e.preventDefault(); // Prevent default navigation
           //     navigate(`${item === "Home" ? "/" : `/${item.toLowerCase()}`}`);
@@ -48,7 +45,7 @@ function NavBar() {
           {item}
         </Link>
       ))}
-      <span className="flex flex-col items-center font-ottercol text-stone-700 mr-5">
+      <span className="flex flex-row items-center font-ottercol text-stone-700 mr-5">
         <a
           href="https://www.linkedin.com/in/taha-moumni-754997a0/"
           target="_blank"
@@ -83,22 +80,31 @@ function NavBar() {
           </span>
         </a>
       </span>
-      <div
+      {/* <div
         id="banner1"
-        className="fixed top-0 left-0 h-svh w-1/4 backdrop-blur-sm bg-white/20 z-10"
+        className="fixed top-0 left-0 h-svh w-1/4 backdrop-blur-sm bg-stone-800/30 z-10"
       ></div>
       <div
         id="banner2"
-        className="fixed top-0 left-1/4 h-svh w-1/4 backdrop-blur-sm bg-white/20 z-10"
+        className="fixed top-0 left-1/4 h-svh w-1/4 backdrop-blur-sm bg-stone-800/30 z-10"
       ></div>
       <div
         id="banner3"
-        className="fixed top-0 left-2/4 h-svh w-1/4 backdrop-blur-sm bg-white/20 z-10"
+        className="fixed top-0 left-2/4 h-svh w-1/4 backdrop-blur-sm bg-stone-800/30 z-10"
       ></div>
       <div
         id="banner4"
-        className="fixed top-0 left-3/4 h-svh w-1/4 backdrop-blur-sm bg-white/20 z-10"
-      ></div>
+        className="fixed top-0 left-3/4 h-svh w-1/4 backdrop-blur-sm bg-stone-800/30 z-10"
+      ></div> */}
+      {Array.from({ length: 4 }, (_, index) => (
+        <div
+          key={index}
+          id={`banner${index + 1}`}
+          className={`fixed top-0 left-${
+            index ? index + "/4" : "0"
+          } h-svh w-1/4 backdrop-blur-sm bg-stone-800/30 z-10`}
+        ></div>
+      ))}
     </nav>
   );
 }

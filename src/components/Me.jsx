@@ -5,10 +5,11 @@ import cv from "../assets/cv-fs.pdf";
 function Me() {
   const [copied, setCopied] = React.useState(false);
   return (
-    // <div className="bg-slate-50 w-full h-full p-5 rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+    // <div className="bg-stone-50 w-full h-full p-5 rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
     <section
-      className="flex flex-row items-center w-[calc(100svw-6rem)] h-svh pt-24"
+      className="flex flex-row items-center h-[calc(100svh-5rem)] w-svw pt-24"
       id="home"
+      data-path="/"
     >
       <div className="w-1/2 flex items-center justify-center">
         <img

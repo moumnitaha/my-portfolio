@@ -2,10 +2,11 @@ import React from "react";
 
 function Projects() {
   return (
-    // <div className="bg-slate-50 w-full h-full p-5 rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+    // <div className="bg-stone-50 w-full h-full p-5 rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
     <section
-      className="flex flex-col items-center w-[calc(100svw-6rem)] h-svh pt-24"
+      className="flex flex-col items-center h-[calc(100svh-5rem)] w-svw pt-24"
       id="projects"
+      data-path="/projects"
     >
       <h1 className="bg-gradient-to-r from-stone-900 to-stone-400 text-transparent bg-clip-text font-ottercob text-3xl text-stone-700">
         Projects
