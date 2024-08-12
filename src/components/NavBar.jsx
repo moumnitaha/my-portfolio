@@ -1,11 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import cv from "../assets/cv-fs.pdf";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsGithub, BsLinkedin, BsInstagram } from "react-icons/bs";
+import { gsap } from "gsap";
+
+const animateBanners = () => {
+  let banner1 = document.getElementById("banner1");
+  let banner2 = document.getElementById("banner2");
+  let banner3 = document.getElementById("banner3");
+  let banner4 = document.getElementById("banner4");
+  if (banner1 && banner2 && banner3 && banner4) {
+    const tl = gsap.timeline();
+    tl.set([banner1, banner2, banner3, banner4], { yPercent: 0 }).to(
+      [banner1, banner2, banner3, banner4],
+      { yPercent: 100, stagger: 0.2 }
+    );
+  }
+};
 
 function NavBar() {
   const [copied, setCopied] = useState(false);
   const navigate = useNavigate();
+  const pathname = useLocation().pathname;
+  useEffect(() => {
+    animateBanners();
+  }, [pathname]);
   return (
     <nav className="p-4 flex h-svh flex-col justify-between items-center w-24 font-ottercol bg-stone-300">
       <h5 className="text-5xl font-ottercob bg-gradient-to-r from-stone-900  to-stone-400 text-transparent bg-clip-text text-center">
@@ -64,6 +83,22 @@ function NavBar() {
           </span>
         </a>
       </span>
+      <div
+        id="banner1"
+        className="fixed top-0 left-0 h-svh w-1/4 backdrop-blur-sm bg-white/20 z-10"
+      ></div>
+      <div
+        id="banner2"
+        className="fixed top-0 left-1/4 h-svh w-1/4 backdrop-blur-sm bg-white/20 z-10"
+      ></div>
+      <div
+        id="banner3"
+        className="fixed top-0 left-2/4 h-svh w-1/4 backdrop-blur-sm bg-white/20 z-10"
+      ></div>
+      <div
+        id="banner4"
+        className="fixed top-0 left-3/4 h-svh w-1/4 backdrop-blur-sm bg-white/20 z-10"
+      ></div>
     </nav>
   );
 }
