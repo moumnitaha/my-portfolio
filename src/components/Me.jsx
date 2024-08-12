@@ -1,11 +1,13 @@
 import React from "react";
 import me from "../assets/me.png";
+import cv from "../assets/cv-fs.pdf";
 
 function Me() {
+  const [copied, setCopied] = React.useState(false);
   return (
     // <div className="bg-slate-50 w-full h-full p-5 rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
     <section
-      className="flex flex-row items-center h-[calc(100svh-6rem)] pt-24"
+      className="flex flex-row items-center w-[calc(100svw-6rem)] h-svh pt-24"
       id="home"
     >
       <div className="w-1/2 flex items-center justify-center">
@@ -22,6 +24,41 @@ function Me() {
         <h3 className="font-ottercol text-lg ">
           that make the world a better place.
         </h3>
+        <div className="font-ottercor text-sm bg-stone-100 py-3 px-5 rounded-full border-stone-200 border text-stone-800 m-4">
+          <span>tahamoumni@gmail.com</span>
+          <button
+            className={`ml-2 ${
+              copied ? "bg-green-200" : "bg-white"
+            } p-3 rounded-full ease-in-out transition-all min-w-20 hover:scale-105`}
+            onClick={() => {
+              navigator.clipboard
+                .writeText("tahamoumni@gmail.com")
+                .then(() => {
+                  setCopied(true);
+                  setTimeout(() => {
+                    setCopied(false);
+                  }, 2000);
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+            }}
+          >
+            {copied ? "Copied !" : "Copy"}
+          </button>
+          <button
+            className="ml-2 bg-white p-3 rounded-full min-w-20 focus:bg-green-200 ease-in-out transition-all hover:scale-105"
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = cv;
+              link.download = "cv-Taha-Moumni.pdf";
+              document.body.appendChild(link);
+              link.click();
+            }}
+          >
+            CV
+          </button>
+        </div>
       </div>
     </section>
     // </div>

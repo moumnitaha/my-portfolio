@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       {/* <main className="w-full h-svh bg-stone-200 flex flex-col justify-center items-center p-12"> */}
-      <main className="w-full h-full bg-stone-200">
+      <main className="w-full h-full bg-stone-200 flex flex-row">
         <NavBar />
         <Routes>
           <Route path="/" element={<Me />} />
