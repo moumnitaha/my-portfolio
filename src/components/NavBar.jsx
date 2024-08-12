@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import cv from "../assets/cv-fs.pdf";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { BsGithub, BsLinkedin, BsInstagram } from "react-icons/bs";
 
 function NavBar() {
   const [copied, setCopied] = useState(false);
+  const navigate = useNavigate();
   return (
-    <nav
-      className=" p-4 flex h-auto flex-row justify-between items-center w-full bg-slate-50 rounded-3xl
-	  mb-5 shadow-[0_35px_50px_-15px_rgba(0,0,0,0.3)]"
-    >
+    <nav className="p-4 flex h-24 flex-row justify-between items-center w-full font-ottercol fixed top-0 left-0 right-0 bg-stone-200">
       <h5 className="text-5xl font-ottercob bg-gradient-to-r from-stone-900  to-stone-400 text-transparent bg-clip-text ml-5">
         Taha Dev
       </h5>
@@ -49,21 +48,32 @@ function NavBar() {
       </div>
       {["Home", "Projects", "About", "Contact"].map((item, index) => (
         <Link
-          to={`/${item === "Home" ? "" : item.toLowerCase()}`}
+          to={"/#" + item.toLowerCase()}
           key={index}
           className="hover:underline"
+          onClick={(e) => {
+            e.preventDefault(); // Prevent default navigation
+            navigate(`${item === "Home" ? "/" : `/#${item.toLowerCase()}`}`);
+            const element = document.getElementById(item.toLowerCase());
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
         >
           {item}
         </Link>
       ))}
-      <span className="items-center font-ottercol text-stone-700 mr-5">
+      <span className="flex flex-row items-center font-ottercol text-stone-700 mr-5">
         <a
           href="https://www.linkedin.com/in/taha-moumni-754997a0/"
           target="_blank"
           rel="noreferrer"
           className="hover:underline"
         >
-          LinkedIn
+          <span className="flex flex-row items-center">
+            <BsLinkedin className="mx-2" />
+            LinkedIn
+          </span>
         </a>
         &nbsp;&nbsp;&nbsp;{"/"}&nbsp;&nbsp;&nbsp;
         <a
@@ -72,7 +82,10 @@ function NavBar() {
           rel="noreferrer"
           className="hover:underline"
         >
-          Github
+          <span className="flex flex-row  items-center ">
+            <BsGithub className="mx-2" />
+            Github
+          </span>
         </a>
         &nbsp;&nbsp;&nbsp;{"/"}&nbsp;&nbsp;&nbsp;
         <a
@@ -81,7 +94,10 @@ function NavBar() {
           rel="noreferrer"
           className="hover:underline"
         >
-          Blank
+          <span className="flex flex-row items-center">
+            <BsInstagram className="mx-2" />
+            Blank
+          </span>
         </a>
       </span>
     </nav>

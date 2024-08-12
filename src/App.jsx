@@ -13,16 +13,24 @@ const App = () => {
   //   const BrowserRouter = createBrowserRouter();
   return (
     <Router>
-      <main className="w-full h-svh bg-stone-200 flex flex-col justify-center items-center p-12">
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Me />} />
-          <Route path="/projects" element={<Projects />} />
+      {/* <main className="w-full h-svh bg-stone-200 flex flex-col justify-center items-center p-12"> */}
+      {/* <NavBar /> */}
+      <Routes>
+        <Route path="/" element={<Container />} />
+        {/* <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+          <Route path="/about" element={<About />} /> */}
+        <Route
+          path="*"
+          element={
+            <>
+              <NavBar />
+              <NotFound />
+            </>
+          }
+        />
+      </Routes>
+      {/* </main> */}
     </Router>
   );
 };
