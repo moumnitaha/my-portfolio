@@ -48,17 +48,17 @@ function NavBar() {
       </div>
       {["Home", "Projects", "About", "Contact"].map((item, index) => (
         <Link
-          to={"/" + item.toLowerCase()}
+          to={`/${item === "Home" ? "" : item}`}
           key={index}
           className="hover:underline"
-          onClick={(e) => {
-            e.preventDefault(); // Prevent default navigation
-            navigate(`${item === "Home" ? "/" : `/${item.toLowerCase()}`}`);
-            const element = document.getElementById(item.toLowerCase());
-            if (element) {
-              element.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
+          //   onClick={(e) => {
+          //     e.preventDefault(); // Prevent default navigation
+          //     navigate(`${item === "Home" ? "/" : `/${item.toLowerCase()}`}`);
+          //     const element = document.getElementById(item.toLowerCase());
+          //     if (element) {
+          //       element.scrollIntoView({ behavior: "smooth" });
+          //     }
+          //   }}
         >
           {item}
         </Link>
