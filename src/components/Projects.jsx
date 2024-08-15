@@ -13,15 +13,13 @@ function Projects() {
     });
   }, []);
   return (
-    // <div className="bg-stone-50 w-full h-full p-5 rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+    // <div className="bg-gray-50 w-full h-full p-5 rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
     <section
-      className="prj flex flex-col items-center h-[calc(100svh-5rem)] w-svw pt-24"
+      className="prj flex flex-col items-center h-[calc(100svh-5rem)] w-[calc(100svw-2rem)] mr-8 pt-24"
       id="projects"
       data-path="/projects"
     >
-      <h1 className="bg-gradient-to-r from-stone-900 to-stone-500 text-transparent bg-clip-text font-ottercob text-3xl text-stone-700">
-        Projects
-      </h1>
+      <h1 className=" font-ottercob text-3xl text-gray-700">Projects</h1>
       <div
         id="projects-container"
         // ref={scrollContainerRef}
@@ -30,12 +28,10 @@ function Projects() {
         {Array.from({ length: 4 }, (_, index) => (
           <div
             key={index}
-            className="flex flex-col items-center bg-stone-100 p-5 rounded-3xl border border-stone-100 aspect-video"
+            className="flex flex-col items-center bg-gray-100 p-5 rounded-3xl border border-gray-100 aspect-video"
             id="project-c"
           >
-            <h1 className="font-ottercob text-2xl bg-gradient-to-r from-stone-900 to-stone-500 text-transparent bg-clip-text">
-              Project {index + 1}
-            </h1>
+            <h1 className="font-ottercob text-2xl ">Project {index + 1}</h1>
             <p className="font-ottercol text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
               nec urna at erat tincidunt luctus. Donec non nisl nec eros

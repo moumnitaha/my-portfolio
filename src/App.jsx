@@ -8,11 +8,22 @@ import About from "./components/About";
 import NavBar from "./components/NavBar";
 import NotFound from "./components/NotFound";
 import { BsHeartFill } from "react-icons/bs";
+import { gsap } from "gsap";
 
 const App = () => {
+  useEffect(() => {
+    gsap.fromTo(
+      "footer",
+      { opacity: 0, y: 60 },
+      { opacity: 1, y: 0, duration: 0.5 }
+    );
+  }, []);
   return (
     <Router>
-      <main className="w-[calc(100svw)] h-[calc(100svh-0rem)] bg-[#f9f9f9] flex flex-col items-center overflow-hidden">
+      <main
+        className="w-[calc(100svw)] h-[calc(100svh-0rem)] bg-[#f9f9f9] flex flex-col items-center overflow-hidden"
+        id="main"
+      >
         <NavBar />
         <Routes>
           <Route path="/" element={<Me />} />
@@ -21,7 +32,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <footer className="text-center text-stone-500 font-ottercol text-xs h-6 w-svw flex items-center justify-center">
+        <footer className="text-center text-gray-500 font-ottercol text-xs h-6 w-svw flex items-center justify-center">
           Made with <BsHeartFill className="mx-2" /> by Taha Moumni 2024.
         </footer>
       </main>

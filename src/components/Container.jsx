@@ -7,14 +7,14 @@ import NavBar from "./NavBar";
 
 function Container() {
   return (
-    <main className="w-full h-full bg-stone-200">
+    <main className="w-full h-full bg-gray-200">
       <NavBar />
       <Me />
-      {/* <hr className="w-8/9 border-stone-300 m-16" /> */}
+      {/* <hr className="w-8/9 border-gray-300 m-16" /> */}
       <Projects />
-      {/* <hr className="w-8/9 border-stone-300 m-16" /> */}
+      {/* <hr className="w-8/9 border-gray-300 m-16" /> */}
       <About />
-      {/* <hr className="w-8/9 border-stone-300 m-16" /> */}
+      {/* <hr className="w-8/9 border-gray-300 m-16" /> */}
       <Contact />
     </main>
   );
