@@ -8,7 +8,7 @@ function About() {
       id="about"
       data-path="/about"
     >
-      <h1 className="bg-gradient-to-r from-stone-900 to-stone-400 text-transparent bg-clip-text font-ottercob text-3xl text-stone-700">
+      <h1 className="bg-gradient-to-r from-stone-900 to-stone-500 text-transparent bg-clip-text font-ottercob text-3xl text-stone-700">
         About
       </h1>
       <div className="flex flex-col items-center bg-stone-100 rounded-3xl border border-stone-200 w-auto p-5 my-10 mx-4">

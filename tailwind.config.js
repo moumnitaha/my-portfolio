@@ -18,6 +18,15 @@ export default {
           "0%": { transform: "transtoneX(-100%)", opacity: 0 },
           "100%": { transform: "transtoneX(0)", opacity: 1 },
         },
+        morph: {
+          "0%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
+          "50%": { borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%" },
+          "100%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
+        },
+      },
+      animation: {
+        morph: "morph 5s ease-in-out infinite",
+        bounceSlow: "bounce 8s infinite",
       },
       transitionDelay: {
         0: "0ms",
