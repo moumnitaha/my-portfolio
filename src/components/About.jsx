@@ -4,7 +4,7 @@ function About() {
   return (
     // <div className="bg-gray-50 w-full h-full p-5 rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
     <section
-      className="flex flex-col items-center h-[calc(100svh-5rem)] w-[calc(100svw-2rem)] pt-24"
+      className="flex flex-col items-center h-[calc(100svh-0rem)] w-[calc(100svw-2rem)] mr-8 pt-24"
       id="about"
       data-path="/about"
     >

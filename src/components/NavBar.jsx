@@ -1,43 +1,71 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsGithub, BsLinkedin, BsInstagram } from "react-icons/bs";
 import { gsap } from "gsap";
 
 function NavBar() {
-  let pathname = useLocation().pathname;
-  //   useEffect(() => {
-  //     gsap.fromTo(
-  //       "a",
-  //       { opacity: 0, y: -80 },
-  //       { opacity: 1, y: 0, duration: 0.5 }
-  //     );
-  //   }, [pathname]);
+  const navigate = useNavigate();
+  let pathname = useLocation().hash;
+  console.log(pathname);
+
   useEffect(() => {
+    document.querySelectorAll("nav a").forEach((link, index) => {
+      gsap.fromTo(
+        link,
+        { opacity: 0, y: -60 },
+        { opacity: 1, y: 0, duration: 0.5, delay: 0.2 * (index + 1) }
+      );
+    });
+    document.querySelectorAll("#social a").forEach((link, index) => {
+      gsap.fromTo(
+        link,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.5, delay: 0.2 * (index + 1) }
+      );
+    });
     gsap.fromTo(
       "nav",
       { opacity: 0, y: -60 },
-      { opacity: 1, y: 0, duration: 0.5 }
-    );
-    gsap.fromTo(
-      "#social",
-      { opacity: 0, x: -35 },
-      { opacity: 1, x: 0, duration: 0.5 }
+      { opacity: 1, y: 0, duration: 0.75 }
     );
   }, []);
   return (
-    <div className="flex flex-row">
-      <nav className="p-5 w-[calc(100svw)] flex flex-row justify-between items-center h-20 font-ottercol bg-[#fff] shadow-sm">
-        <h5 className="text-3xl font-ottercob ">{"Taha Dev"}</h5>
+    <div className="flex flex-row fixed  z-50">
+      <nav className="p-5 w-[calc(100svw)] flex flex-row justify-between items-center h-20 font-ottercol shadow-sm bg-[#fff]">
+        <h5 className="text-3xl font-ottercob text-gray-800">
+          <Link
+            to="/"
+            onClick={() => {
+              navigate("/");
+              document
+                .getElementById("home")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            {"<TahaDev />"}
+          </Link>
+        </h5>
         <div className="w-1/6 flex flex-row items-center justify-around">
           {["Home", "Projects", "About", "Contact"].map((item, index) => (
             <Link
               to={`/${item === "Home" ? "" : item}`}
               key={index}
               className={`flex flex-row items-center  hover:text-gray-500 transition-all text-gray-700 text-lg hover:font-ottercob ${
-                pathname === `/${item}` || (pathname === "/" && item === "Home")
+                pathname === `#${item.toLowerCase()}` ||
+                (pathname === "" && item === "Home")
                   ? "font-ottercob"
                   : "font-ottercor"
               }`}
+              onClick={(e) => {
+                e.preventDefault(); // Prevent default navigation
+                navigate(
+                  `${item === "Home" ? "/#" : `/#${item.toLowerCase()}`}`
+                );
+                const element = document.getElementById(item.toLowerCase());
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
             >
               {item}
             </Link>

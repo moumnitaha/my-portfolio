@@ -16,9 +16,13 @@ let skills = [
   "docker",
   "git",
 ];
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Me() {
   useEffect(() => {
+    ScrollTrigger.create({});
     skills.forEach((skill, index) => {
       gsap.fromTo(
         `#${skill}`,
@@ -58,17 +62,17 @@ function Me() {
   const [copied, setCopied] = React.useState(false);
   return (
     <section
-      className="flex flex-col items-center h-[calc(100svh-5rem)] w-full lg:w-1/2"
+      className="flex flex-col items-center h-[calc(100svh-0rem)] w-[calc(100svw-2rem)] mr-8 pt-20"
       id="home"
       data-path="/"
     >
-      <div className="flex  flex-col lg:flex-row md:flex-col sm:flex-col w-full h-3/4 items-center">
+      <div className="flex flex-col lg:flex-row md:flex-col sm:flex-col w-1/2 h-3/4 items-center">
         <div className="cc flex flex-col items-start text-gray-800 w-2/3">
           <h1 className="font-ottercob text-8xl" id="name">
             Taha Moumni
           </h1>
           <h2 className="font-ottercol text-5xl" id="job">
-            Software Engineer
+            Full Stack Developer
           </h2>
           <div id="quote" className="flex flex-col items-start">
             <h3 className="font-ottercol text-lg">
@@ -132,6 +136,7 @@ function Me() {
         <div className="flex flex-row justify-start w-96 flex-wrap items-start">
           {skills.map((item, index) => (
             <img
+              title={item}
               src={`https://skillicons.dev/icons?i=${item}`}
               alt={item}
               className="m-2 w-12 h-12 z-10 drop-shadow-md cursor-pointer focus:scale-110 ease-in-out transition-all"
